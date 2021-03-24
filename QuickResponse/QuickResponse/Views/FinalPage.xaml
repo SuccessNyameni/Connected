@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             
+             x:Class="QuickResponse.Views.FinalPage">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+            <Grid BackgroundColor="SteelBlue" VerticalOptions="FillAndExpand" HeightRequest="600">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                <Grid Grid.Row="0" BackgroundColor="DarkCyan" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+                    <Label  TextColor="SandyBrown" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Text="Connected" FontSize="Title" FontAttributes="Bold" Grid.Column="1" ></Label>
+
+                        <Button WidthRequest="60"  BackgroundColor="DarkCyan" Grid.Column="2"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Clicked="PencilButton" Text="Edit"/>
+                    <Image Grid.Column="0" Source="connected.png"></Image>
+                </Grid>
+                <StackLayout Grid.Row="2">
+                    <Label Text="Choose Your Emergency Responce" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" TextColor="GhostWhite" FontSize="20" />
+                </StackLayout>
+                    <StackLayout Grid.Row="4" WidthRequest="80">
+                        <Grid WidthRequest="50">
+                            <Button HorizontalOptions="Center" BackgroundColor="SteelBlue" Text="Type message" FontSize="Micro" FontAttributes="Bold" WidthRequest="100" Clicked="buttonTypeMessage"></Button>
+
+                        </Grid>
+                    </StackLayout>
+
+                    <Grid Grid.Row="3" Margin="20,0,20,0" VerticalOptions="StartAndExpand">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <StackLayout Grid.Row="1">
+                            <Image  Grid.Row="1" Grid.Column="0" Source="Police.png" HeightRequest="70" WidthRequest="90"></Image>
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" Grid.Column="1">
+                            <Button CornerRadius="15" Grid.Row="1"   x:Name="PoliceDeptButton"  Text="POLICE" FontSize="25" HorizontalOptions="CenterAndExpand" TextColor="White" BackgroundColor="Black" WidthRequest="200" HeightRequest="80" Clicked="PoliceButton" />
+                        </StackLayout>
+
+
+                        <StackLayout Grid.Row="2">
+                            <Image  Grid.Row="2" Grid.Column="0" Source="firefighter.png" HeightRequest="70" WidthRequest="90"></Image>
+                        </StackLayout>
+                        <StackLayout Grid.Row="2" Grid.Column="1">
+                            <Button CornerRadius="15" Grid.Column="1" x:Name="FireDeptButton" Text="FIRE" FontSize="25" HorizontalOptions="CenterAndExpand" TextColor="White" BackgroundColor="Black" WidthRequest="200" HeightRequest="80" Clicked="FireButton"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="3">
+                            <Image  Grid.Row="3" Grid.Column="0" Source="ambulance2.png" HeightRequest="70" WidthRequest="90"></Image>
+                        </StackLayout>
+                        <StackLayout Grid.Row="3" Grid.Column="1">
+                            <Button CornerRadius="15" Grid.Column="1"  x:Name="AmbuButton"  Text="AMBULANCE" FontSize="25" HorizontalOptions="CenterAndExpand" TextColor="White" BackgroundColor="Black" WidthRequest="200" HeightRequest="80" Clicked="AmbulanceButton"/>
+                        </StackLayout>
+                        
+
+                        <Label Text="" x:Name="Longitude" TextColor="SteelBlue"/>
+                        <Label Text="" x:Name="Latitude" TextColor="SteelBlue"/>
+
+                    </Grid>
+                   
+
+
+
+                </Grid>
+
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

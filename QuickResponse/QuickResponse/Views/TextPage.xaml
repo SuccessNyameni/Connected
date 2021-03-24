@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QuickResponse.Views.TextPage">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid BackgroundColor="SteelBlue" VerticalOptions="FillAndExpand" HeightRequest="600">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                
+                <Grid Grid.Row="0" BackgroundColor="DarkCyan" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="connected.png" WidthRequest="150"></Image>
+                    <Label TextColor="SandyBrown" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Text="Connected" FontSize="Title" FontAttributes="Bold" Grid.Column="1" ></Label>
+                </Grid>
+                
+                <Editor Grid.Row="2" BackgroundColor="SteelBlue" Placeholder="Type text" x:Name="messageEditor"></Editor>
+
+                <Label TextColor="White" Grid.Row="1" FontSize="Medium" HorizontalTextAlignment="Center" >Type your Emergency message below</Label>
+                <Button CornerRadius="15" Clicked="SendMessage" Grid.Row="3" Text="Send" HorizontalOptions="CenterAndExpand" TextColor="White" BackgroundColor="DarkCyan" HeightRequest="10" WidthRequest="100"></Button>
+            </Grid>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
