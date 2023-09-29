@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 using Plugin.Geolocator;
 using Plugin.Messaging;
 using Xamarin.Essentials;
-using Xamarin.Forms;
+using Xamarin.Forms.Core;
 using Xamarin.Forms.Xaml;
 using QuickResponse.Views;
 using QuickResponse.Table;
+using QuickResponse;
 using System.IO;
 using Plugin.Toast;
+using Xamarin.Forms;
+using Xamarin.Essentials;
+using Xamarin.Forms.GoogleMaps;
+
 
 
 namespace QuickResponse.Views
@@ -20,6 +25,7 @@ namespace QuickResponse.Views
     [assembly: UsesPermission(Manifest.Permission.SEND_SMS)]
     [assembly: UsesPermission(Manifest.Permission.ACCESS_COARSE_LOCAION)]
     [assembly: UsesPermission(Manifest.Permission.ACCESS_FINE_LOCATION)]
+    [assembly: UsesPermission(Manifest.Permission.SendSms)]
     public partial class FinalPage : ContentPage
     {
         //text file path
@@ -62,8 +68,10 @@ namespace QuickResponse.Views
 
         //Police button
         public async void PoliceButton(object sender, EventArgs e)
-        {            
-                try
+        {
+
+        
+            try
                 {
                 await Task.Delay(200);
                 await PoliceDeptButton.FadeTo(0, 300);
@@ -92,8 +100,8 @@ namespace QuickResponse.Views
 
                     StreamReader streamReader = new StreamReader(fileName);
                     string content = streamReader.ReadToEnd();
-                    var manager = Android.Telephony.SmsManager.Default;
-                    manager.SendTextMessage(content, null, "EMERGENCY!!" + "\n" + "In need of Police" + "\n" + "Here is my location : " + " http://www.google.com/maps/place/" + locationsss, null, null);
+                   //var manager = Android.Telephony.SmsManager.Default;
+                   //manager.SendTextMessage(content, null, "EMERGENCY!!" + "\n" + "In need of Police" + "\n" + "Here is my location : " + " http://www.google.com/maps/place/" + locationsss, null, null);
                     CrossToastPopUp.Current.ShowToastSuccess("Message Sent");
                 }
 
@@ -124,8 +132,9 @@ namespace QuickResponse.Views
                             StreamReader streamReader = new StreamReader(fileName);
 
                             string content = streamReader.ReadToEnd();
-                            var manager = Android.Telephony.SmsManager.Default;
-                            manager.SendTextMessage(content, null, "Updated Location" + "\n" + "Here is my location : " + " http://www.google.com/maps/place/" + locationsss, null, null);
+                            
+                            //var manager = Android.Telephony.SmsManager.Default;
+                            //manager.SendTextMessage(content, null, "Updated Location" + "\n" + "Here is my location : " + " http://www.google.com/maps/place/" + locationsss, null, null);
                             return true;// True = Repeat again, False = Stop the timer
                         }
                     }
@@ -188,8 +197,10 @@ namespace QuickResponse.Views
 
                 StreamReader streamReader = new StreamReader(fileName);
                 string content = streamReader.ReadToEnd();
-                var manager = Android.Telephony.SmsManager.Default;
-                manager.SendTextMessage(content, null, "EMERGENCY!!" + "\n" + "In need of Ambulance" + "\n" + "Here is my location : " + " http://www.google.com/maps/place/" + locationsss, null, null);
+              
+
+                //var manager = Android.Telephony.SmsManager.Default;
+                //manager.SendTextMessage(content, null, "EMERGENCY!!" + "\n" + "In need of Ambulance" + "\n" + "Here is my location : " + " http://www.google.com/maps/place/" + locationsss, null, null);
 
                 CrossToastPopUp.Current.ShowToastSuccess("Message Sent");
             }
@@ -230,8 +241,10 @@ namespace QuickResponse.Views
                 StreamReader streamReader = new StreamReader(fileName);
 
                 string content = streamReader.ReadToEnd();
-                var manager = Android.Telephony.SmsManager.Default;
-                manager.SendTextMessage(content,null, "EMERGENCY!!" + "\n" + "In need of Fire Department" + "\n" + "Here is my location : " + " http://www.google.com/maps/place/" + locationsss, null, null);
+                var message = new SmsMessage("Updated Location" + "\n" + "Here is my location : " + " http://www.google.com/maps/place/" + locationsss, new[] { allPhoneNumbers });
+                await Sms.ComposeAsync(message);
+                // var manager = Android.Telephony.SmsManager.Default;
+                //manager.SendTextMessage(content,null, "EMERGENCY!!" + "\n" + "In need of Fire Department" + "\n" + "Here is my location : " + " http://www.google.com/maps/place/" + locationsss, null, null);
                 CrossToastPopUp.Current.ShowToastSuccess("Message Sent");
             }
             catch (Exception ex)

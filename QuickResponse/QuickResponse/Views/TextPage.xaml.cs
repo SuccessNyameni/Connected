@@ -8,6 +8,10 @@ using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using System.IO;
 using Plugin.Toast;
+using Xamarin.Forms.Platform;
+
+
+
 
 namespace QuickResponse.Views
 {
@@ -21,7 +25,7 @@ namespace QuickResponse.Views
         string test4;
         string test5;
 
-       // string message = "";
+        string message = "";
         Label Latitude = new Label();
         Label Longitude = new Label();
 
@@ -68,8 +72,8 @@ namespace QuickResponse.Views
                     StreamReader streamReader = new StreamReader(fileName);
 
                     string content = streamReader.ReadToEnd();
-                    var manager = Android.Telephony.SmsManager.Default;
-                    manager.SendTextMessage(content, null, "EMERGENCY!!" + "\n" + "Message: " + message + "\n" + " http://www.google.com/maps/place/" + locationsss, null, null);
+                   //var manager = Android.Telephony.SmsManager.Default;
+                   //var manager.SendTextMessage(content, null, "EMERGENCY!!" + "\n" + "Message: " + message + "\n" + " http://www.google.com/maps/place/" + locationsss, null, null);
 
                     CrossToastPopUp.Current.ShowToastSuccess("Message Sent");
                     messageEditor.Text = string.Empty;

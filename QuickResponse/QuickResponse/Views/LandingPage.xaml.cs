@@ -1,6 +1,6 @@
-﻿using Android.Content;
-using Firebase.Database;
+﻿using Firebase.Database;
 using QuickResponse.Table;
+using QuickResponse;
 using System;
 using System.IO;
 using System.Linq;
@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Plugin.Toast;
+using Xamarin.Forms.PlatformConfiguration;
+
 
 namespace QuickResponse.Views
 {
@@ -20,7 +22,7 @@ namespace QuickResponse.Views
         string number3;
         string number4;
         string number5;
-        public Context Activity { get; private set; }
+        //public Content Activity { get; private set; }
         public LandingPage(string myValue, string value2, string value3, string value4, string value5)
         {
             InitializeComponent();
