@@ -1,4 +1,4 @@
-# Connected
+# Connected - Need Debugging
 A mobile application keeping people connected to their trustees.
 User registers numbersof people they wish to be connected to, after registering the 2nd screen is displayed.
 The 2nd screen provides user with 3 Emergency buttons(Police, Ambulance, Fire Department).
